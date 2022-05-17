@@ -4,11 +4,11 @@ metadata:
   namespace: myapp
   managedFields:
   - apiVersion: networking.k8s.io/v1
-  name: myapp.cloudraya.com
+  name: myapp.settingserver.com
   namespace: myapp  
 spec:
   rules:
-  - host: myapp.cloudraya.com
+  - host: myapp.settingserver.com
     http:
       paths:
       - backend:
