@@ -1,21 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: myapp
-  managedFields:
-  - apiVersion: networking.k8s.io/v1
   name: myapp.settingserver.com
-  namespace: myapp  
+  namespace: myapp 
 spec:
   rules:
-  - host: myapp.settingserver.com
-    http:
+  - http:
       paths:
-      - backend:
-          service:
-            name: myapp-service
-            port:
-              number: 80
-        path: /
-        pathType: ImplementationSpecific
+      - path: /
+        backend:
+          serviceName: myapp-service
+          servicePort: 80
 
