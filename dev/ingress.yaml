@@ -2,13 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myapp.settingserver.com
-  namespace: myapp 
+  namespace: myapp
 spec:
   rules:
-  - http:
+  - host: myapp.settingserver.com
+    http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: myapp-service
-          servicePort: 80
-
+          service:
+            name: myapp-service
+            port:
+              number: 80
